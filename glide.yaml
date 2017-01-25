@@ -1,0 +1,4 @@
+package: github.com/lcacciagioni/gosample
+import:
+- package: github.com/cloudfoundry-community/go-cfenv
+  version: ~1.14.0
