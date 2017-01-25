@@ -18,6 +18,11 @@ const (
 // HelloServer is the base funtion to expose text
 func HelloServer(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(w, "Hello, World! from GO")
+
+	fmt.Fprintln(w, "\nComplete Environment: ")
+	fmt.Fprintln(w, "\n", os.Environ())
+	fmt.Fprintln(w)
+
 	if strings.Contains(strings.Join(os.Environ(), " "), "VCAP_APPLICATION") {
 
 		appEnv, _ := cfenv.Current()

@@ -96,13 +96,18 @@ buildpack: Go
 It will use the default manifest with almost no requirements as you can see. Now if you do: `$ curl gosample.local.pcfdev.io` you will gonna be able to see something like:
 ```
 Hello, World! from GO
+
+Complete Environment: 
+
+ [CF_INSTANCE_ADDR=10.0.2.15:60200 TMPDIR=/home/vcap/tmp USER=vcap VCAP_APPLICATION={"application_id":"e78e2dd4-8e0a-4ab9-9cd0-38b63ea72dc5","application_name":"gosample","application_uris":["gosample.local.pcfdev.io"],"application_version":"aac0a29b-6bfb-48f3-bd95-9f72c7aca9f2","cf_api":"http://api.local.pcfdev.io","host":"0.0.0.0","instance_id":"3a59e422-e25d-48c5-7b1a-3dc1279690e6","instance_index":1,"limits":{"disk":64,"fds":16384,"mem":32},"name":"gosample","port":8080,"space_id":"0f9dede9-6eab-496f-a39c-8b419e1d2f9f","space_name":"pcfdev-space","uris":["gosample.local.pcfdev.io"],"version":"aac0a29b-6bfb-48f3-bd95-9f72c7aca9f2"} CF_INSTANCE_GUID=3a59e422-e25d-48c5-7b1a-3dc1279690e6 PATH=/usr/local/bin:/usr/bin:/bin:/home/vcap/app/bin PWD=/home/vcap/app LANG=en_US.UTF-8 CF_INSTANCE_PORT=60200 VCAP_SERVICES={} CF_INSTANCE_IP=10.0.2.15 CF_INSTANCE_INDEX=1 HOME=/home/vcap/app SHLVL=1 CF_INSTANCE_PORTS=[{"external":60200,"internal":8080},{"external":60201,"internal":2222}] INSTANCE_INDEX=1 PORT=8080 INSTANCE_GUID=3a59e422-e25d-48c5-7b1a-3dc1279690e6 MEMORY_LIMIT=32m _=/home/vcap/app/bin/gosample]
+
 Super I'm running in CloudFoundry and this are my variables:
-ID: ba6a61df-5134-4fbc-728b-ab7966b80d4d
+ID: 3a59e422-e25d-48c5-7b1a-3dc1279690e6
 Index: 1
 Name: gosample
 Host: 0.0.0.0
 Port: 8080
-Version: c50d21c5-41df-4ef9-94ea-9a4f5a4b39e2
+Version: aac0a29b-6bfb-48f3-bd95-9f72c7aca9f2
 Home: /home/vcap/app
 MemoryLimit: 32m
 WorkingDir: /home/vcap/app
@@ -114,6 +119,7 @@ MYSQL: false
 RABBITMQ: false
 
 REDIS: false
+
 ```
 ## Enabling Services
 In the next few lines I'll try to show you how to enable the different services to see some of the exposed variables using also `curl`.
