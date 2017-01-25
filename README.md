@@ -1,13 +1,14 @@
 # GO Sample | Cloudfoundry
 This is a simple app created to work and show the capabilities of golang when deployed to [Cloudfoundry](https://www.cloudfoundry.org/).
 
-> Intended (but not limited) to be used with [pcf-dev](http://pivotal.io/pcf-dev)
+> Intended (but not limited) to be used with [pcf-dev](http://pivotal.io/pcf-dev). This project also assumes that you have a functional version of golang and [glide](https://glide.sh/).
 
 ## First push
 All you have to do is to clone this repo and then move to it and run:
 ```bash
 $ go get -u github.com/lcacciagioni/gosample
 $ cd $GOPATH/src/github.com/lcacciagioni/gosample
+$ glide update
 $ cf push
 Using manifest file $GOPATH/src/github.com/lcacciagioni/gosample/manifest.yml
 Updating app gosample in org pcfdev-org / space pcfdev-space as user...
@@ -186,6 +187,8 @@ Pass:  8e8d56ff-b0d9-4f59-b7de-790012711aef
 ## VERSIONS
 
 ```
+go: go version go1.7.4 linux/amd64
+glide: glide version v0.12.3
 pcf-dev: PCF Dev version 0.23.0 (CLI: 474b3ba, OVA: 0.436.0)
 cf cli: cf version 6.23.1+a70deb3.2017-01-13
 ```
