@@ -1,7 +1,6 @@
 # GO Sample | Cloudfoundry
 This is a simple app created to work and show the capabilities of golang when deployed to [Cloudfoundry](https://www.cloudfoundry.org/).Using manifest file /home/lcacciagioni/workspace/go/gopath/src/github.com/lcacciagioni/gosample/manifest.yml
 
-
 ## First push
 All you have to do is to clone this repo and then move to it and run:
 ```bash
@@ -52,7 +51,7 @@ file:///tmp/buildpacks/4351f5cc91c6d5bb8d11a7418ea9cbff/dependencies/https___bui
 file:///tmp/buildpacks/4351f5cc91c6d5bb8d11a7418ea9cbff/dependencies/https___buildpacks.cloudfoundry.org_concourse-binaries_glide_glide-v0.12.3-linux-x64.tgz
 -----> Checking Godeps/Godeps.json file.
 -----> Using go1.7.3
-[1;33m !!    Installing package '.' (default)[0m
+Installing package '.' (default)
 -----> Running: go install -v -tags cloudfoundry . 
 github.com/lcacciagioni/gosample/vendor/github.com/mitchellh/mapstructure
 github.com/lcacciagioni/gosample/vendor/github.com/cloudfoundry-community/go-cfenv
@@ -92,7 +91,7 @@ buildpack: Go
 #0   running   2017-01-25 03:07:05 PM   0.0%   2.4M of 32M   7.2M of 64M
 #1   running   2017-01-25 03:07:05 PM   0.0%   2.7M of 32M   7.2M of 64M
 ```
-It will use the default manifest with almost no requirements as you can see. Now if you do: `curl gosample.local.pcfdev.io` you will gonna be able to see something like:
+It will use the default manifest with almost no requirements as you can see. Now if you do: `$ curl gosample.local.pcfdev.io` you will gonna be able to see something like:
 ```
 Hello, World! from GO
 Super I'm running in CloudFoundry and this are my variables:
@@ -123,7 +122,7 @@ $ cf cs p-rabbitmq standard rabbitmq
 $ cf bs gosample rabbitmq
 $ cf restage gosample
 ```
-After doing this a new section will appear when you do `curl gosample.local.pcfdev.io` with something similar to this:
+After doing this a new section will appear when you do `$ curl gosample.local.pcfdev.io` with something similar to this:
 ```
 RABBITMQ: true
 
@@ -142,4 +141,55 @@ MGMT:
         pass:  vh2plek65pskf61c67evnu9bgs
         ssl:  false
 ```
+### MySql
+Execute this commands to have mysql env vars in place.
+```bash
+$ cf cs p-mysql 1gb mysql
+$ cf bs gosample mysql
+$ cf restage gosample
+```
+And then the MySql section will appear with something similar to this:
+```
+MYSQL: true
 
+DB Host:  mysql-broker.local.pcfdev.io
+DB Port:  3306
+DB Name:  cf_7f27f3fe_5f38_4f3f_be18_3c50dad5458a
+DB User:  eRhRJwVDmH3Ah4Us
+DB Pass:  Yc9Py9Llux4uTs38
+```
+### Redis
+Execute this commands to have redis env vars in place.
+```bash
+$ cf cs p-redis shared-vm redis
+$ cf bs gosample redis
+$ cf restage gosample
+```
+And then the Redis section will appear with something similar to this:
+```
+REDIS: true
+
+Host:  redis.local.pcfdev.io
+Pass:  8e8d56ff-b0d9-4f59-b7de-790012711aef
+```
+
+## VERSIONS
+
+```
+pcf-dev: PCF Dev version 0.23.0 (CLI: 474b3ba, OVA: 0.436.0)
+cf cli: cf version 6.23.1+a70deb3.2017-01-13
+```
+
+### Available marketplace
+```
+Getting services from marketplace in org pcfdev-org / space pcfdev-space as user...
+OK
+
+service        plans             description
+local-volume   free-local-disk   Local service docs: https://github.com/cloudfoundry-incubator/local-volume-release/
+p-mysql        512mb, 1gb        MySQL databases on demand
+p-rabbitmq     standard          RabbitMQ is a robust and scalable high-performance multi-protocol messaging broker.
+p-redis        shared-vm         Redis service to provide a key-value store
+
+TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
+```
