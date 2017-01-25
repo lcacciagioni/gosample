@@ -201,3 +201,8 @@ p-redis        shared-vm         Redis service to provide a key-value store
 
 TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
 ```
+
+## TODO
+- [ ] Do something using Rabbit
+- [ ] Do something using MySql
+- [ ] Do Something using Redis
