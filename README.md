@@ -1,6 +1,8 @@
 # GO Sample | Cloudfoundry
 This is a simple app created to work and show the capabilities of golang when deployed to [Cloudfoundry](https://www.cloudfoundry.org/).
 
+> Intended (but not limited) to be used with [pcf-dev](http://pivotal.io/pcf-dev)
+
 ## First push
 All you have to do is to clone this repo and then move to it and run:
 ```bash
