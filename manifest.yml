@@ -1,0 +1,5 @@
+applications:
+- name: gosample
+  memory: 32M
+  instances: 2
+  disk_quota: 64M
