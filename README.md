@@ -123,6 +123,18 @@ RABBITMQ: false
 REDIS: false
 
 ```
+## Docker way
+The only thing that really changes from the previous deployment way is how you tell CloudFoundry to deploy your code so do all the same as before except for the `cf push` command which is changed by:
+```bash
+cf push gosample -o cacciald/gosample:latest
+```
+
+The docker image must be pushed before to a docker secure repo. For more information, please read [this](http://docs.pivotal.io/pivotalcf/1-9/adminguide/docker.html).
+
+> The image used here is built and updated from this same repo and lives in docker hub.
+
+> WARNING: Don't desperate yourself docker images seems to be A LOT SLOWERS than buildpacks to deploy but they work in the end.
+
 ## Enabling Services
 In the next few lines I'll try to show you how to enable the different services to see some of the exposed variables using also `curl`.
 ### RabbitMQ
