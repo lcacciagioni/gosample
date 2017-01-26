@@ -207,7 +207,7 @@ TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans o
 ```
 
 ## TODO
-- [ ] Create a Docker Image with same code (Prove docker workflow)
+- [x] Create a Docker Image with same code (Prove docker workflow)
 - [ ] Do something using Rabbit
 - [ ] Do something using MySql
 - [ ] Do Something using Redis
